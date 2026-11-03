@@ -7,21 +7,23 @@
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="#inicio"><h1>CABACAÑAS</h1></a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#">El festival</a></li>
-                <li><a href="#">Competencias</a></li>
-                <li><a href="#tarifas">Tarifas</a></li>
-                <li><a href="#">Cómo llegar</a></li>
-            </ul>
-        </nav>
-        <a class="boton boton-encabezado" href="#">INSCRIBIR CABALLO</a>
-    </header>
+   <header>
+
+    <!-- Botón hamburguesa -->
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        ☰
+    </button>
+
+    <nav>
+        <ul id="nav-list">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#">El festival</a></li>
+            <li><a href="#">Competencias</a></li>
+            <li><a href="#tarifas">Tarifas</a></li>
+            <li><a href="#">Cómo llegar</a></li>
+        </ul>
+    </nav>
+</header>
 
     <section class="portada" id="inicio">
         <img src="imagenes/jinete-caballo-portada.jpg" alt="Jinete con sombrero blanco montando un caballo de paso">
@@ -72,9 +74,72 @@
         </div>
         <div class="nota">Consultar condiciones, horarios, categorías y requisitos de inscripción.</div>
     </section>
+    <section class="cuenta-regresiva">
+    <h2>El festival comienza en</h2>
+    <div class="contador">
+        <div class="bloque">
+            <span id="dias">00</span>
+            <small>Días</small>
+        </div>
+        <div class="bloque">
+            <span id="horas">00</span>
+            <small>Horas</small>
+        </div>
+        <div class="bloque">
+            <span id="minutos">00</span>
+            <small>Minutos</small>
+        </div>
+        <div class="bloque">
+            <span id="segundos">00</span>
+            <small>Segundos</small>
+        </div>
+    </div>
+</section>
 
     <footer>
         <div>Organiza: Asociación Cabacañas · Cañasgordas, Antioquia · <a href="#">Contacto</a> · <a href="#">Preguntas frecuentes</a> · <a href="#">Instagram</a></div>
     </footer>
+
+    <script>
+    // Menú hamburguesa
+    const hamburger = document.getElementById('hamburger');
+    const navList = document.getElementById('nav-list');
+
+    hamburger.addEventListener('click', () => {
+        navList.classList.toggle('activo');
+        if (navList.classList.contains('activo')) {
+            hamburger.textContent = '✕';
+        } else {
+            hamburger.textContent = '☰';
+        }
+    });
+
+    // Lógica de la cuenta regresiva
+    // Cambia la fecha deseada aquí (Formato: YYYY-MM-DDTHH:MM:SS)
+    const fechaEvento = new Date('2026-12-01T00:00:00').getTime();
+
+    function actualizarContador() {
+        const ahora = new Date().getTime();
+        const diferencia = fechaEvento - ahora;
+
+        if (diferencia <= 0) {
+            document.querySelector('.cuenta-regresiva').innerHTML = '<h2>¡El festival ha comenzado!</h2>';
+            return;
+        }
+
+        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+        document.getElementById('dias').textContent = String(dias).padStart(2, '0');
+        document.getElementById('horas').textContent = String(horas).padStart(2, '0');
+        document.getElementById('minutos').textContent = String(minutos).padStart(2, '0');
+        document.getElementById('segundos').textContent = String(segundos).padStart(2, '0');
+    }
+
+    actualizarContador();
+    setInterval(actualizarContador, 1000);
+</script>
 </body>
 </html>

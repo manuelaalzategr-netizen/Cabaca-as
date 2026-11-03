@@ -42,6 +42,17 @@ nav li {
     margin: 4px 24px 4px 0;
 }
 
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #7D263F;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 1;
+}
+
 .boton {
     display: inline-block;
     padding: 12px 20px;
@@ -154,8 +165,41 @@ footer {
         flex-wrap: wrap;
     }
 
+    .hamburger {
+        display: block;
+    }
+
     nav {
         width: 100%;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 16px;
+        background: #FFFFFF;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(125, 38, 63, 0.1);
+        padding: 12px 0;
+    }
+
+    nav ul.activo {
+        display: flex;
+    }
+
+    nav li {
+        margin: 0;
+    }
+
+    nav li a {
+        display: block;
+        padding: 12px 20px;
+        border-bottom: 1px solid #F4DCE4;
+    }
+
+    nav li:last-child a {
+        border-bottom: none;
     }
 
     .portada {
@@ -199,5 +243,66 @@ footer {
 
     .unidad {
         display: none;
+    }
+}
+/* --- Cuenta regresiva --- */
+.cuenta-regresiva {
+    background: #7D263F;
+    color: #FFF9F2;
+    text-align: center;
+    padding: 28px 20px;
+    border-radius: 12px;
+    margin: 24px 0;
+}
+
+.cuenta-regresiva h2 {
+    margin: 0 0 16px 0;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #FFF9F2;
+}
+
+.contador {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.bloque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 12px 20px;
+    border-radius: 8px;
+    min-width: 65px;
+}
+
+.bloque span {
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFF9F2;
+}
+
+.bloque small {
+    font-size: 11px;
+    color: #F4DCE4;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+    .contador {
+        gap: 8px;
+    }
+
+    .bloque {
+        padding: 10px 10px;
+        min-width: 50px;
+    }
+
+    .bloque span {
+        font-size: 22px;
     }
 }
