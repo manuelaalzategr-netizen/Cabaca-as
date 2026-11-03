@@ -1,0 +1,203 @@
+body {
+    margin: 0;
+    padding: 0 40px 24px;
+    background: #FFF9F2;
+    color: #49333A;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1 {
+    margin: 0;
+    color: #7D263F;
+    font-size: 26px;
+}
+
+nav li, .boton, .lugar, .nombre, .precio, footer {
+    font-weight: bold;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #F4DCE4;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    margin: 4px 24px 4px 0;
+}
+
+.boton {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #7D263F;
+    color: #FFF9F2;
+    vertical-align: middle;
+}
+
+.boton-claro {
+    background: #C4849A;
+}
+
+.botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+section {
+    padding: 20px 0;
+}
+
+.portada {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.portada img {
+    display: block;
+    width: 48%;
+}
+
+.portada aside {
+    width: 52%;
+}
+
+.lugar {
+    margin-top: 12px;
+    color: #C4849A;
+}
+
+.portada h1 {
+    margin: 12px 0;
+    font-size: 36px;
+}
+
+.descripcion {
+    margin-bottom: 20px;
+}
+
+.tarifas h1 {
+    margin-bottom: 12px;
+}
+
+.lista-tarifas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+article {
+    width: 13%;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: #FFFFFF;
+    border-bottom: 3px solid #F4DCE4;
+}
+
+.nombre {
+    color: #7D263F;
+}
+
+.precio {
+    margin: 6px 0;
+    font-size: 20px;
+}
+
+.nota {
+    text-indent: 12px;
+}
+
+footer {
+    padding: 20px;
+    background: #F4DCE4;
+    color: #7D263F;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    body {
+        padding: 0 24px 24px;
+    }
+
+    .boton-encabezado {
+        display: none;
+    }
+
+    article {
+        width: 27%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 0 16px 16px;
+    }
+
+    header {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .portada {
+        display: block;
+    }
+
+    .portada img, .portada aside {
+        width: 100%;
+    }
+
+    .portada h1 {
+        font-size: 26px;
+    }
+
+    .botones {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .lista-tarifas {
+        display: block;
+    }
+
+    article {
+        display: flex;
+        justify-content: space-between;
+        width: auto;
+        margin: 0;
+        padding: 10px 8px;
+        background: none;
+        border-bottom: none;
+    }
+
+    article.resaltada {
+        background: #F4DCE4;
+    }
+
+    .precio {
+        margin: 0;
+    }
+
+    .unidad {
+        display: none;
+    }
+}
